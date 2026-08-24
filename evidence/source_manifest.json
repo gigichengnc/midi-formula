@@ -1,0 +1,13 @@
+[
+  {"path":"src/midilib.py","bytes":10420,"sha256":"afdf46e76b70d348c56c587d64c8639bcfe7b96dcf5c113080a280f6af3dc40a"},
+  {"path":"src/formula.py","bytes":9462,"sha256":"7a10d929f3802f7f95c60a124702dfdc23890aa61860a3c956a4325f900b616e"},
+  {"path":"src/songs.py","bytes":25909,"sha256":"6f4ffd3400d3f37a4625a4fea502ab15674d56c40e633c763f039203a9767ec8"},
+  {"path":"src/lyrics_data.py","bytes":4725,"sha256":"abc832b2e533fd0eff2318e05f87429f30d71d956e07cd37bfef53a7ac0a8317"},
+  {"path":"build_album.py","bytes":2152,"sha256":"74fcd6562db2060dd04acf4015dccb3567ba9d61ae26fea161012b6cbba3dadf"},
+  {"path":"validate_album.py","bytes":9314,"sha256":"77839697461e695449d7ee0a77bd20390b0983d13abd3eef8202a82dc06f0dca"},
+  {"path":"export_vocals.py","bytes":4483,"sha256":"4c905277974d58c65f5e66063599d9f0b8a6f6b32d33535054aba77219a17f57"},
+  {"path":"BIBLE_1_composition.md","bytes":7469,"sha256":"4415044ba2eea30bb983560105441a3b2c4284b264d0a4b30a5f7090e5fafc6a"},
+  {"path":"BIBLE_2_production.md","bytes":9997,"sha256":"45951de9a3aeab438203bf99a973090b90f343e0d0573387064f67506f4b6a2d"},
+  {"path":"manifest.json","bytes":3169,"sha256":"0c9542d7111d61cd51a49bad479e6643730336f2e3f338b2379dccd632a84950"},
+  {"path":"TRACK_SHEET.md","bytes":5198,"sha256":"446318faf27b72d01c84cafdedb67f9510e0cee4a3efe013916e7acf23d27688"}
+]
