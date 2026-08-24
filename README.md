@@ -39,7 +39,7 @@ This repository is **public but still a work in progress**.
 - **PR #2 — rough-first AI Composer SDK:** adds a model-agnostic zero-dependency SDK and a one-file portable mode for coding-AI tests.
 - **Signal handoff:** generated rough MIDI has been opened and edited successfully in Signal MIDI.
 - **Pilot B01 — Night Train:** initial fixed-brief tests have been run with Grok, ChatGPT, and DeepSeek. The pilot demonstrates feasibility and has already exposed a concrete meter/timing interpretation failure, but it is far too small for statistical or publication claims.
-- **Research release:** not frozen yet. Audit hardening, benchmark structure, licensing, and experiment documentation are still being consolidated.
+- **Research release:** not frozen yet. Audit hardening, benchmark structure, and experiment documentation are still being consolidated.
 
 For a faculty/research-oriented summary, see [`RESEARCH_PREVIEW.md`](RESEARCH_PREVIEW.md).
 
@@ -91,7 +91,7 @@ Because the project is being built in layers, `main` currently serves as the res
 - [PR #1 — Establish explicit AI-to-MIDI formula layer](https://github.com/gigichengnc/midi-formula/pull/1)
 - [PR #2 — Add rough-first AI Composer SDK](https://github.com/gigichengnc/midi-formula/pull/2)
 
-The planned next milestone is a frozen pilot/research release with a stable SDK, documented benchmark protocol, preserved model outputs, machine-readable metrics, and a clear licensing boundary.
+The planned next milestone is a frozen pilot/research release with a stable SDK, documented benchmark protocol, preserved model outputs, machine-readable metrics, and a clear experimental boundary.
 
 ## Reproducibility principle
 
@@ -106,3 +106,14 @@ chat-platform file/execution capability
 For example, a model can still succeed at the composition task by producing a runnable song program even if its chat interface cannot directly execute Python or return a binary `.mid` file.
 
 That distinction is part of the planned cross-model evaluation rather than being treated as an automatic model failure.
+
+## License
+
+MIDI Formula uses **split licensing** so publishing the research code does not unintentionally open-license the original musical case study.
+
+- **Software** (`portable/`, `src/`, `tools/`, `tests/`, `examples/`, CI/package files): **Apache License 2.0**.
+- **Original MIDI Formula research/project documentation:** **CC BY 4.0** unless specifically excluded.
+- **Opus 5 and related creative case-study material:** excluded from those open licenses unless a file explicitly says otherwise.
+- **Future benchmark/model/human-participant data:** licensing will be decided separately before release.
+
+See [`LICENSING.md`](LICENSING.md) for the exact scope and [`LICENSE`](LICENSE) for the Apache-2.0 text.
