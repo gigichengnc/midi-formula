@@ -10,7 +10,7 @@ MIDI Formula started from a real Claude-assisted composition project where Claud
 ```text
 human musical direction
         ↓
-AI reads prompts/AI_COMPOSER.md
+AI reads MIDI Formula SDK
         ↓
 AI writes readable song logic
 (form / harmony / tracks / transitions / patterns)
@@ -24,26 +24,77 @@ Signal MIDI / DAW
 human refinement
 ```
 
+## One-file mode — recommended for users and coding AIs
+
+You do **not** need to download the whole repository to use MIDI Formula.
+
+`portable/midi_formula_sdk.py` is a self-contained version containing:
+
+- the AI Composer contract;
+- the raw Standard MIDI File writer;
+- note/chord helpers;
+- section primitives;
+- rough accompaniment and transition patterns;
+- MIDI structural validation.
+
+It uses only the Python standard library. Give a coding AI this **one file plus your musical brief** and ask it to create a new song script.
+
+Example instruction:
+
+```text
+Use midi_formula_sdk.py as the existing SDK.
+Read AI_COMPOSER_CONTRACT inside it.
+Do not rewrite the MIDI engine or add third-party MIDI libraries.
+Write a new Python song script for this brief:
+
+[describe the music here]
+
+Generate a rough editable .mid for later human refinement in Signal MIDI.
+```
+
+A generated song can simply import from the one file:
+
+```python
+from midi_formula_sdk import Song, Section, progression, eighth_arpeggio, validate_midi
+```
+
+So the portable user workflow is only:
+
+```text
+midi_formula_sdk.py + music brief
+        ↓
+Claude / Grok / Codex / Gemini
+        ↓
+new_song.py
+        ↓
+new_song.mid
+        ↓
+Signal MIDI
+```
+
+The modular `src/midi_formula/` package remains in the repository for development, testing and maintainability; users do not need to collect those files individually.
+
 ## Why rough MIDI first
 
 The goal is not `formula -> perfect finished song`. AI is useful for producing a coherent 60–85% first draft quickly. Once the MIDI exists, a human can often fix local musical choices faster in a piano roll: move one note, shorten a transition, lower one track, duplicate four bars, or change an instrument.
 
 The formula layer therefore controls **how the first draft is generated**, while Signal remains the place for note-level and arrangement-level finishing.
 
-## AI Composer SDK
+## Modular AI Composer SDK
 
-The v0.2 SDK keeps MIDI serialization stable and lets the AI focus on composition:
+For contributors, the v0.2 SDK is split into readable modules:
 
 ```text
 src/midi_formula/midi.py       raw Standard MIDI File writer
 src/midi_formula/theory.py     note/chord helpers
 src/midi_formula/structure.py  explicit sections and bar starts
 src/midi_formula/patterns.py   reusable rough accompaniment/transition patterns
-prompts/AI_COMPOSER.md         contract for Claude/Codex/Gemini-style coding agents
+prompts/AI_COMPOSER.md         full contract for coding agents
 examples/rough_draft.py        complete rough-draft example
+portable/midi_formula_sdk.py   self-contained user-facing SDK
 ```
 
-Generate and validate the example with ordinary Python:
+Generate and validate the repository example with ordinary Python:
 
 ```bash
 PYTHONPATH=src python examples/rough_draft.py
