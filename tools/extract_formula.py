@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Inventory explicit MIDI-generation rules from the preserved Python source.
+"""Inventory explicit MIDI-generation rules from preserved Python source.
 
-This tool does not execute the album builder and does not regenerate MIDI.
+This tool parses source only. It never imports the album modules, executes the
+builder, or writes MIDI files.
 """
 from __future__ import annotations
 
@@ -30,7 +31,10 @@ def literal_assignments(tree: ast.AST, wanted_prefixes: tuple[str, ...]) -> dict
 
 def call_inventory(tree: ast.AST, source: str) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
-    interesting = {"Track", "figure", "pedal", "cc_ramp", "play", "note", "enforce_mono"}
+    interesting = {
+        "Track", "figure", "pedal", "cc", "cc_ramp", "play", "note",
+        "enforce_mono", "meta_track", "save", "_pack", "_vlq",
+    }
     for node in ast.walk(tree):
         if not isinstance(node, ast.Call):
             continue
@@ -51,7 +55,7 @@ def inspect_file(path: Path) -> dict[str, Any]:
     tree = ast.parse(source, filename=str(path))
     return {
         "file": str(path),
-        "constants": literal_assignments(tree, ("ROLE_GAIN", "PLAN_", "P_")),
+        "constants": literal_assignments(tree, ("ROLE_GAIN", "PLAN_", "P_", "PPQ", "QUAL", "GM_RANGE")),
         "calls": call_inventory(tree, source),
     }
 
@@ -62,11 +66,16 @@ def main() -> None:
     ap.add_argument("--out", type=Path)
     args = ap.parse_args()
 
-    files = [args.source_root / "formula.py", args.source_root / "midilib.py", args.source_root / "songs.py"]
+    candidates = ["formula.py", "midilib.py", "songs.py"]
+    present = [args.source_root / name for name in candidates if (args.source_root / name).exists()]
+    missing = [name for name in candidates if not (args.source_root / name).exists()]
+
     result = {
         "kind": "explicit-source-rule-inventory",
         "regenerates_midi": False,
-        "files": [inspect_file(p) for p in files],
+        "executes_source": False,
+        "files": [inspect_file(p) for p in present],
+        "missing_from_local_snapshot": missing,
     }
     text = json.dumps(result, ensure_ascii=False, indent=2)
     if args.out:
