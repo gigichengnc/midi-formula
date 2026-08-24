@@ -119,8 +119,19 @@ The third question is **not yet proven**. Signal compatibility is demonstrated; 
 - Not a claim to be the first AI system that generates editable MIDI.
 - Not yet a completed benchmark or publication-ready dataset.
 
+## License
+
+MIDI Formula uses **split licensing**:
+
+- **Software** (`portable/`, `src/`, `tools/`, `tests/`, `examples/`, CI/package files): **Apache License 2.0**.
+- **Original MIDI Formula research/project documentation:** **CC BY 4.0** unless specifically excluded.
+- **Opus 5 and related creative case-study material:** excluded from those open licenses unless a file explicitly says otherwise.
+- **Future benchmark/model/human-participant data:** licensing will be decided separately before release.
+
+See [`LICENSING.md`](LICENSING.md) for the exact scope, [`LICENSE`](LICENSE) for Apache-2.0, and [`original/opus5/RIGHTS.md`](original/opus5/RIGHTS.md) for the case-study boundary.
+
 ## Status for reviewers
 
-This is PR #2, stacked on the evidence-layer PR #1. The current research-facing goal is to consolidate audit fixes, freeze a stable SDK version, document the pilot as research data, define benchmark metrics, and choose an explicit licensing boundary before broader promotion or citation.
+This is PR #2, stacked on the evidence-layer PR #1. The current research-facing goal is to consolidate audit fixes, freeze a stable SDK version, document the pilot as research data, and define benchmark metrics before broader promotion or citation. The code/documentation/creative-material licensing boundary is now explicit; future benchmark and human-participant data will be handled separately.
 
 See [`docs/README_FOR_REVIEWERS.md`](docs/README_FOR_REVIEWERS.md) for a short orientation.
