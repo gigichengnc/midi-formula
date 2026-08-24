@@ -1,43 +1,56 @@
 # MIDI Formula
 
-**Make AI-written MIDI generation logic editable, inspectable, and reusable — then hand the rough MIDI to a human editor.**
+**Prompt → readable Python → editable MIDI → human refinement.**
 
-MIDI Formula started from a real Claude-assisted composition project where Claude wrote Python that directly emitted multitrack Standard MIDI Files. The project now has two connected layers:
+MIDI Formula is an active research/engineering prototype exploring whether general-purpose coding LLMs can act as transparent symbolic-music co-creators through a small fixed interface.
 
-1. **Evidence layer** — preserve and inspect the explicit composition logic Claude wrote in the original project.
-2. **AI Composer SDK** — give future coding AIs a stable, zero-dependency API so they can write a readable song program, generate a useful rough `.mid`, and leave taste-level polishing to a human in Signal MIDI or another editor.
+Instead of asking an AI system to return only a finished audio artifact, the workflow asks it to write an inspectable Python composition program first. A zero-runtime-dependency SDK then renders ordinary multitrack Standard MIDI, which can be opened in Signal MIDI or another editor for human refinement.
 
 ```text
-human musical direction
-        ↓
-AI reads MIDI Formula SDK
-        ↓
-AI writes readable song logic
+musical brief
+    ↓
+general-purpose coding LLM
+    ↓
+readable Python composition logic
 (form / harmony / tracks / transitions / patterns)
-        ↓
-MIDI Formula raw SMF writer
-        ↓
+    ↓
+raw Standard MIDI File
+    ↓
 rough editable .mid
-        ↓
+    ↓
 Signal MIDI / DAW
-        ↓
+    ↓
 human refinement
 ```
 
-## One-file mode — recommended for users and coding AIs
+## Research direction
 
-You do **not** need to download the whole repository to use MIDI Formula.
+The current question is broader than “can AI generate MIDI?” Existing systems already do that.
 
-`portable/midi_formula_sdk.py` is a self-contained version containing:
+> **How reliably can different general-purpose coding LLMs use the same small transparent interface to turn musical intent into executable, editable symbolic-music programs; where do they fail; and what is the value of keeping a readable program between the prompt and the MIDI output?**
 
-- the AI Composer contract;
-- the raw Standard MIDI File writer;
-- note/chord helpers;
-- section primitives;
-- rough accompaniment and transition patterns;
-- MIDI structural validation.
+The SDK is research apparatus, not the sole novelty claim.
 
-It uses only the Python standard library. Give a coding AI this **one file plus your musical brief** and ask it to create a new song script.
+## Current pilot status
+
+A first fixed *Night Train* brief has been tested with Grok, ChatGPT, and DeepSeek. This is a feasibility pilot, not yet a controlled benchmark.
+
+- Grok independently understood the SDK and produced composition code; its chat environment could not return the binary MIDI file.
+- ChatGPT produced a valid 6/8 multitrack draft close to the requested 90-second duration.
+- DeepSeek produced valid MIDI when its script was executed locally, but interpreted the timing unit differently and generated a substantially longer piece. This exposed a concrete meter/time-unit ambiguity worth studying.
+
+The next research phase is expected to use fixed briefs, repeated fresh generations, multiple models, automatic structural metrics, blind listening evaluation, and—only after appropriate ethics advice—a possible human refinement study.
+
+## One-file mode — recommended
+
+Most users and coding AIs only need:
+
+```text
+portable/midi_formula_sdk.py
++ a musical brief
+```
+
+The portable file contains the embedded AI Composer contract, raw Standard MIDI File writer, note/chord helpers, section primitives, rough accompaniment/transition patterns, and structural validation. It uses only the Python standard library.
 
 Example instruction:
 
@@ -52,45 +65,23 @@ Write a new Python song script for this brief:
 Generate a rough editable .mid for later human refinement in Signal MIDI.
 ```
 
-A generated song can simply import from the one file:
+A generated song can import directly from the one file:
 
 ```python
 from midi_formula_sdk import Song, Section, progression, eighth_arpeggio, validate_midi
 ```
 
-So the portable user workflow is only:
+## Modular SDK
 
-```text
-midi_formula_sdk.py + music brief
-        ↓
-Claude / Grok / Codex / Gemini
-        ↓
-new_song.py
-        ↓
-new_song.mid
-        ↓
-Signal MIDI
-```
-
-The modular `src/midi_formula/` package remains in the repository for development, testing and maintainability; users do not need to collect those files individually.
-
-## Why rough MIDI first
-
-The goal is not `formula -> perfect finished song`. AI is useful for producing a coherent 60–85% first draft quickly. Once the MIDI exists, a human can often fix local musical choices faster in a piano roll: move one note, shorten a transition, lower one track, duplicate four bars, or change an instrument.
-
-The formula layer therefore controls **how the first draft is generated**, while Signal remains the place for note-level and arrangement-level finishing.
-
-## Modular AI Composer SDK
-
-For contributors, the v0.2 SDK is split into readable modules:
+The maintainable development version is split into:
 
 ```text
 src/midi_formula/midi.py       raw Standard MIDI File writer
 src/midi_formula/theory.py     note/chord helpers
 src/midi_formula/structure.py  explicit sections and bar starts
-src/midi_formula/patterns.py   reusable rough accompaniment/transition patterns
-prompts/AI_COMPOSER.md         full contract for coding agents
-examples/rough_draft.py        complete rough-draft example
+src/midi_formula/patterns.py   reusable accompaniment/transition patterns
+prompts/AI_COMPOSER.md         coding-agent contract
+examples/rough_draft.py        working rough-draft example
 portable/midi_formula_sdk.py   self-contained user-facing SDK
 ```
 
@@ -101,37 +92,35 @@ PYTHONPATH=src python examples/rough_draft.py
 python tools/validate_midi.py output/rough_draft.mid
 ```
 
-No `mido`, `music21`, DAW plugin, or other MIDI-writing dependency is required.
+No `mido`, `music21`, DAW plugin, or other runtime MIDI-writing dependency is required.
 
-## Transparent MIDI bytes
+## Evidence / Opus 5 case study
 
-The writer emits the Standard MIDI File structure directly:
+MIDI Formula grew from a Claude-assisted nine-song project, *A Collection of Sweet Air*. The evidence layer preserves explicit source rules from that project and records historical MIDI output hashes.
 
-- `MThd` header and `MTrk` chunks;
-- variable-length delta times;
-- Note On / Note Off events;
-- Program Change and Control Change events;
-- tempo and time-signature meta-events;
-- end-of-track markers.
+The current branch now restores the original nine-song source table that was missing in the first snapshot, but **audit hardening is still being consolidated**. Do not treat the current branch as a finished archival reconstruction or frozen research release yet.
 
-This keeps the path from musical rule to MIDI bytes inspectable.
+The original Opus 5 code is also richer than this SDK: it contains performance-oriented behavior that the v0.2 rough-draft interface intentionally does not fully port.
 
-## Original case study
+## What this project is testing
 
-`original/opus5/` preserves the core of *A Collection of Sweet Air*, a nine-track Claude-assisted project. Its existing MIDI files are evidence of the earlier generation workflow; MIDI Formula does not need to regenerate those songs to study their source rules.
+1. **Reliability:** can different coding LLMs produce valid, prompt-conforming MIDI through one fixed interface?
+2. **Failure modes:** where do models diverge in meter, duration, form, instrumentation, transitions, dependencies, and executable correctness?
+3. **Human editability:** does readable generation logic plus editable MIDI support understandable and controllable refinement?
 
-The normalized `formula/` artifacts and source extractor show explicit section plans, dynamics, accompaniment patterns, timing, articulation, pedal and automation rules found in that generated code.
+The third question is **not yet proven**. Signal compatibility is demonstrated; editing efficiency, agency, and human-participant outcomes still require a proper study.
 
 ## What this is not
 
 - Not MP3-to-MIDI transcription.
 - Not MIDI-to-audio synthesis.
 - Not a replacement for Signal or a DAW.
-- Not a claim to recover Claude's hidden internal reasoning.
-- Not a claim that every music model exposes a readable formula layer.
+- Not a claim to recover hidden chain-of-thought or model-internal reasoning.
+- Not a claim to be the first AI system that generates editable MIDI.
+- Not yet a completed benchmark or publication-ready dataset.
 
-## Research / product question
+## Status for reviewers
 
-> Can a coding AI produce music as an editable program first, a rough MIDI second, and a human-polished performance third?
+This is PR #2, stacked on the evidence-layer PR #1. The current research-facing goal is to consolidate audit fixes, freeze a stable SDK version, document the pilot as research data, define benchmark metrics, and choose an explicit licensing boundary before broader promotion or citation.
 
-MIDI Formula explores that workflow with explicit generation logic rather than treating the AI-generated song as a single opaque artifact.
+See [`docs/README_FOR_REVIEWERS.md`](docs/README_FOR_REVIEWERS.md) for a short orientation.
