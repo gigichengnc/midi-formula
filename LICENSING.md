@@ -1,63 +1,37 @@
-# Licensing
+# Rights and licensing status
 
-MIDI Formula uses a split-licensing policy so that reusable software, research documentation, and the original creative case study are not accidentally treated as the same kind of material.
+Copyright © 2026 Gigi Cheng. All rights reserved for the current research-preview version unless a file explicitly states otherwise.
 
-## 1. Software — Apache License 2.0
+MIDI Formula is currently being shared publicly for **inspection, academic discussion, provenance, and faculty/research review**. No new open-source or open-content license is granted for the current research-preview state.
 
-Copyright 2026 Gigi Cheng.
+## Current research-preview terms
 
-The following project software is licensed under the Apache License, Version 2.0 (`Apache-2.0`):
+Except where a specific file expressly grants additional permission, no permission is granted to copy, modify, adapt, redistribute, sublicense, sell, republish, incorporate into another project, use as a released benchmark/dataset, or otherwise exploit the current repository contents outside rights that already apply under law or the GitHub Terms of Service.
 
-- `portable/**`
-- `src/**`
-- `tools/**`
-- `tests/**`
-- `examples/**`
-- `.github/**`
-- `pyproject.toml`
+Academic citation, factual description, and limited quotation remain subject to the rights and exceptions available under applicable law. Requests for broader reuse should be directed to the repository owner.
 
-The full Apache-2.0 text is in [`LICENSE`](LICENSE).
+This rights-reserved posture currently covers the software, SDK, research documentation, prompts, benchmark design, case-study materials, and future research artifacts unless a narrower file-level notice says otherwise.
 
-This license is intended to let others inspect, run, modify, test, and redistribute the reusable SDK and supporting software while preserving the normal Apache-2.0 attribution and notice requirements.
+## Public GitHub limitation
 
-## 2. Research and project documentation — CC BY 4.0
+Because this repository is public, GitHub's Terms of Service permit other GitHub users to view and fork public repository content through GitHub's functionality. Public visibility should not be interpreted as a broader permission to reuse, redistribute, commercialize, or republish the material outside those platform permissions.
 
-Unless a file is specifically excluded below, original MIDI Formula documentation is licensed under the Creative Commons Attribution 4.0 International license (`CC BY 4.0`):
+## Earlier licensed versions
 
-- `README.md`
-- `RESEARCH_PREVIEW.md`
-- `FACULTY_NOTE.md`
-- `docs/**`
-- `prompts/**`
-- `AGENTS.md`
-- small project-orientation README files outside the excluded case-study directories
+Earlier revisions of parts of this repository were briefly published under Apache-2.0 (software) and CC BY 4.0 (documentation). Those licenses are not being applied to new/current research-preview revisions.
 
-License: https://creativecommons.org/licenses/by/4.0/
+This change does **not** attempt to revoke permissions already validly granted for earlier versions. Apache-2.0 and Creative Commons licenses are designed to be irrevocable for copies/version(s) already received under those terms. Future revisions, benchmark material, study design, and new research artifacts should therefore be evaluated according to the notice attached to the version actually being used.
 
-When reusing this material, please attribute **Gigi Cheng / MIDI Formula**, link to the repository when practical, identify the CC BY 4.0 license, and indicate material changes.
+## Opus 5 case study
 
-The CC license applies to the documentation text and project-authored explanatory material only. It does **not** automatically license underlying music, lyrics, compositions, third-party material, model-provider content, or other excluded material merely because such material is described or quoted in the documentation.
+`original/opus5/**`, related extracted formula material, original compositions, melodies, lyrics, arrangement/performance data, MIDI/audio, artwork, and other creative assets remain rights-reserved unless a specific file states otherwise.
 
-## 3. Original creative case study — excluded from the open licenses
+See `original/opus5/RIGHTS.md` for the case-study-specific notice.
 
-The following material is intentionally **not** covered by the Apache-2.0 or CC BY 4.0 grants above unless a file later states otherwise:
+## Future publication/open-source release
 
-- `original/opus5/**`
-- `formula/**` where the content is extracted from or derived from the Opus 5 composition project
-- original compositions, melodies, lyrics, arrangement data, MIDI files, audio files, artwork, and other creative assets from the Opus 5 case study
+After faculty/IP/methodology review and any publication strategy is settled, selected parts of MIDI Formula may be released under an open-source, open-content, or research-data license. Such a release should be made explicitly at the relevant version, file, or directory level rather than inferred from repository visibility.
 
-For these materials, this repository grants no additional reuse permission beyond rights that already apply under law or the GitHub Terms of Service. Public visibility is for inspection, provenance, reproducibility discussion, and research review; it should not be read as a general open-content license for the underlying creative work.
-
-## 4. Evidence and future research data
-
-Factual hashes, file sizes, validation results, and similar non-creative metadata may be reproduced as facts. However, future benchmark datasets, model outputs, human-participant data, and evaluation exports are **not automatically licensed by this document**. Their release terms should be decided separately after methodology, provider terms, consent, privacy, and research-ethics requirements are clear.
-
-## 5. Third-party material
+## Third-party material
 
 Any third-party material remains subject to its own license or terms. Nothing in this repository grants rights that the maintainer is not authorized to grant.
-
-## Why the split exists
-
-The software needs an established open-source software license. Creative Commons itself recommends using software-specific licenses for software, while CC BY 4.0 is appropriate for separate documentation and research-facing explanatory material. The original musical case study is kept outside both grants so that publishing the code does not unintentionally open-license the underlying creative work.
-
-If a future publication or archival release needs a different data/content license, that should be added explicitly at the relevant file or directory level rather than silently changing the scope of these existing grants.
