@@ -1,0 +1,78 @@
+{
+  "profile_name": "Dreaming to Dream",
+  "profile_id": "dreaming-to-dream-v0.1",
+  "purpose": "Transparent composition-strategy profile for generating new nostalgic wonder/adventure MIDI without copying a reference melody.",
+  "reference_policy": {
+    "copy_reference_melody": false,
+    "copy_reference_harmony_sequence": false,
+    "copy_reference_orchestration_verbatim": false,
+    "use_only_abstract_features": true
+  },
+  "reference_observations": {
+    "source_duration_seconds": 942.816,
+    "detected_main_cues": 7,
+    "detected_boundaries_seconds": [0.0, 86.47, 237.77, 353.31, 475.78, 525.10, 690.00, 936.42],
+    "cue_level_key_estimates": [
+      "F major",
+      "Bb major",
+      "E minor / C major",
+      "D major",
+      "D major",
+      "D major / B minor",
+      "A minor / A major"
+    ],
+    "surface_tempo_estimates_bpm": [161.5, 107.7, 161.5, 161.5, 161.5, 107.7, 107.7],
+    "interpretation": [
+      "Major tonal centres are common, but minor or relative-minor shadows repeatedly appear.",
+      "The surface can move faster than the emotional pulse, creating motion without urgency.",
+      "The attractive quality is better represented as an arc of wonder, memory-shadow, lift, and gentle return than as generic sadness."
+    ],
+    "limitations": [
+      "Automatic key and tempo estimates are approximate because the source is a mixed orchestral compilation.",
+      "Cue identities are not asserted from audio analysis alone.",
+      "No note-level reference transcription is stored in this profile."
+    ]
+  },
+  "generation_strategy": {
+    "meter": [6, 8],
+    "midi_quarter_bpm": 96,
+    "felt_dotted_quarter_bpm": 64,
+    "target_duration_seconds": 90,
+    "tonal_home": "F major",
+    "shadow_region": "D minor",
+    "phrase_bars": 4,
+    "motif_bars": 2,
+    "melody": {
+      "stepwise_target": 0.72,
+      "preferred_contour": "gentle rise then fall",
+      "repeat_strategy": "state -> repeat with one or two changes -> answer -> recombine",
+      "large_leap_rule": "resolve mostly by step in the opposite direction",
+      "cadence_strategy": "delay strong tonic closure until late; prefer soft/add-tone endings",
+      "register_strategy": "middle register first, one-octave lift only near the emotional peak"
+    },
+    "harmony": {
+      "palette": ["major", "minor7", "maj7", "add9", "sus2", "dominant7"],
+      "principle": "warm major foundation with relative-minor shadows and delayed resolution",
+      "harmonic_rhythm": "usually one chord per bar",
+      "avoid": ["continuous dramatic chromatic modulation", "trailer-style impact harmony"]
+    },
+    "arrangement": {
+      "opening_density": 0.22,
+      "middle_density": 0.52,
+      "peak_density": 0.78,
+      "ending_density": 0.28,
+      "opening_roles": ["piano", "celesta-like bell colour"],
+      "middle_entries": ["soft bass", "woodwind answer"],
+      "late_entries": ["strings", "counter-melody"],
+      "ending": "return to opening motif in thinner texture"
+    },
+    "emotional_arc": [
+      "quiet curiosity",
+      "discovery",
+      "memory shadow",
+      "hopeful widening",
+      "dream-within-a-dream lift",
+      "gentle afterglow"
+    ]
+  }
+}
