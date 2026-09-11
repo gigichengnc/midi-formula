@@ -1,0 +1,63 @@
+{
+  "name": "Dreaming to Dream — Lonely Memory Variant",
+  "status": "experimental composition profile",
+  "source_basis": {
+    "directly_observed_from_uploaded_score": [
+      "6/8-like compound pulse indicated by dotted-quarter tempo markings",
+      "section labels A, B, C with approximately 34, 41, and 35 dotted-quarter tempo markings",
+      "sparse orchestration with flute, clarinet, glockenspiel, piano, harp, violin, and cello",
+      "long string sustains and large areas of rest",
+      "harp/piano broken-note surfaces",
+      "lead-role changes across sections"
+    ],
+    "not_copied": [
+      "literal melody",
+      "measure-by-measure harmony",
+      "exact orchestration sequence",
+      "exact key-change scheme"
+    ]
+  },
+  "generator_strategy": {
+    "meter": "6/8",
+    "quarter_note_bpm": 54,
+    "felt_dotted_quarter_bpm": 36,
+    "form": [
+      "Distant Room — 4 bars",
+      "A Remembering — 8 bars",
+      "B Falling Inward — 8 bars",
+      "C Acceptance — 8 bars",
+      "Coda Afterimage — 4 bars"
+    ],
+    "melody": {
+      "phrase_unit_bars": 4,
+      "mostly_stepwise": true,
+      "sigh_shape": true,
+      "single_highpoint_per_phrase": true,
+      "incomplete_endings": true,
+      "return_with_changed_destination": true
+    },
+    "texture": {
+      "silence_is_event": true,
+      "density_ceiling": "low-to-medium",
+      "lead_role_rotation": [
+        "flute",
+        "clarinet",
+        "flute+clarinet dialogue",
+        "flute alone"
+      ],
+      "late_release": true
+    },
+    "accompaniment": {
+      "harp": "brief broken gestures followed by air",
+      "piano": "enters later; bass has contour rather than root-only support",
+      "strings": "sustain time/harmonic field rather than continuous melody"
+    },
+    "emotion_arc": [
+      "distant remembrance",
+      "falling inward",
+      "acceptance",
+      "afterimage"
+    ]
+  },
+  "known_sdk_limit": "Current portable SDK writes one global tempo event; section tempo changes are not represented in this prototype."
+}
