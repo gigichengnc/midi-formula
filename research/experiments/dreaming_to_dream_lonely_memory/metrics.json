@@ -1,0 +1,30 @@
+{
+  "experiment": "Dreaming to Dream — Lonely Memory",
+  "status": "generated; pending human listening evaluation",
+  "midi": {
+    "format": 1,
+    "tracks_including_meta": 7,
+    "ppq": 480,
+    "meter": "6/8",
+    "quarter_note_bpm": 54,
+    "felt_dotted_quarter_bpm": 36,
+    "bars": 32,
+    "approx_duration_seconds": 106.7,
+    "bytes": 3024,
+    "note_on_events": 237,
+    "note_off_events": 237,
+    "stuck_notes": 0,
+    "unmatched_note_offs": 0,
+    "sha256": "521179d8c7607bfeec852687eac8dcca444c24831960d12f3b295e5cecd4e231"
+  },
+  "source": {
+    "path": "research/experiments/dreaming_to_dream_lonely_memory/song.py",
+    "sha256": "f36d90be9a755ec49229fdc430ba6085afa5a4ed116bbaa969eeb35df94e8e31"
+  },
+  "profile": {
+    "path": "research/reference_profiles/lonely_memory.profile.json",
+    "sha256_of_local_generation_copy": "a90e0a9d2f64dd761a31ea6c7445e0afb610ad3858223ebf54c606873baafd5c"
+  },
+  "release_note": "The generated MIDI binary is intentionally not committed in this research-preview update. The hash records the locally generated artifact and song.py can regenerate it with the portable SDK.",
+  "known_limit": "The current SDK supports one global tempo event, so the reference score's visible section tempo changes are not reproduced."
+}
