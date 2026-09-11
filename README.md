@@ -2,6 +2,8 @@
 
 **Prompt → readable Python → editable MIDI → human refinement.**
 
+> **Research preview — All rights reserved.** This public repository is currently shared for inspection, academic discussion, provenance, and faculty/research review. It is **not currently an open-source or open-content release**. See [`RIGHTS.md`](RIGHTS.md) and [`LICENSING.md`](LICENSING.md).
+
 MIDI Formula is an active research/engineering prototype exploring whether general-purpose coding LLMs can act as transparent symbolic-music co-creators through a very small fixed interface.
 
 Instead of asking an AI system to return only a finished audio artifact, the workflow asks it to write an inspectable Python composition program first. A zero-runtime-dependency SDK then renders ordinary multitrack Standard MIDI, which can be opened in Signal MIDI or another editor for human refinement.
@@ -107,13 +109,13 @@ For example, a model can still succeed at the composition task by producing a ru
 
 That distinction is part of the planned cross-model evaluation rather than being treated as an automatic model failure.
 
-## License
+## Rights and current licensing status
 
-MIDI Formula uses **split licensing** so publishing the research code does not unintentionally open-license the original musical case study.
+The current research-preview version is **All Rights Reserved** unless a file explicitly states otherwise.
 
-- **Software** (`portable/`, `src/`, `tools/`, `tests/`, `examples/`, CI/package files): **Apache License 2.0**.
-- **Original MIDI Formula research/project documentation:** **CC BY 4.0** unless specifically excluded.
-- **Opus 5 and related creative case-study material:** excluded from those open licenses unless a file explicitly says otherwise.
-- **Future benchmark/model/human-participant data:** licensing will be decided separately before release.
+- The SDK/software is visible for review, but the current/future research-preview revisions are not being newly offered under an open-source license.
+- MIDI Formula research/project documentation is likewise rights-reserved for the current research-preview state.
+- Opus 5 and related creative case-study material remains rights-reserved.
+- Future benchmark/model/human-participant data will receive separate release terms only if and when it is appropriate to publish them.
 
-See [`LICENSING.md`](LICENSING.md) for the exact scope and [`LICENSE`](LICENSE) for the Apache-2.0 text.
+Earlier revisions were briefly released under Apache-2.0 and CC BY 4.0; those earlier grants are not retroactively revoked. See [`LICENSING.md`](LICENSING.md) for the version boundary and [`RIGHTS.md`](RIGHTS.md) for the current notice.
