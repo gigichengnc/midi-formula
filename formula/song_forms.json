@@ -1,0 +1,23 @@
+{
+  "source": "original upload: src/songs.py",
+  "source_sha256": "6f4ffd3400d3f37a4625a4fea502ab15674d56c40e633c763f039203a9767ec8",
+  "plans": {
+    "P_STD": [["intro",4,"intro"],["A",8,"verse"],["A2",8,"lift"],["B",16,"peak"],["A3",16,"sustain"],["end",10,"end"]],
+    "P_SHORT": [["intro",4,"intro"],["A",8,"verse"],["A2",8,"lift"],["B",16,"peak"],["A3",8,"sustain"],["end",10,"end"]],
+    "P_BREAK": [["intro",4,"intro"],["A",8,"verse"],["A2",8,"lift"],["B",8,"peak"],["break",4,"break"],["A3",8,"sustain"],["end",10,"end"]],
+    "P_VOC": [["intro",4,"intro"],["V1",8,"verse"],["Ch1",8,"lift"],["V2",8,"verse"],["Ch2",8,"peak"],["Br",8,"sustain"],["Ch3",8,"lift"],["end",10,"end"]],
+    "P_VOC_LONGBR": [["intro",4,"intro"],["V1",8,"verse"],["Ch1",8,"lift"],["V2",8,"verse"],["Ch2",8,"peak"],["Br",12,"sustain"],["Ch3",8,"lift"],["end",10,"end"]],
+    "P_VOC_EXTRA": [["intro",4,"intro"],["V1",8,"verse"],["Ch1",8,"lift"],["V2",8,"verse"],["Ch2",8,"peak"],["Br",8,"sustain"],["Ch3",8,"lift"],["Ch4",8,"peak"],["end",10,"end"]]
+  },
+  "songs": {
+    "S01": {"file":"01_first_breath_of_winter.mid","title":"The First Breath of Winter","bpm":78,"roll_low":"Db2","plan":"P_STD"},
+    "S02": {"file":"02_the_evening_air_tasted_sweet.mid","title":"The Evening Air Tasted Sweet","bpm":86,"roll_low":"A1","plan":"P_SHORT"},
+    "S03": {"file":"03_cold_outside_warm_in_the_bowl.mid","title":"Cold Outside, Warm in the Bowl","bpm":94,"roll_low":"G1","plan":"P_BREAK"},
+    "S04": {"file":"04_a_little_house_not_a_hotel.mid","title":"A Little House, Not a Hotel","bpm":76,"roll_low":"C2","vocal":true,"plan":"P_VOC"},
+    "S05": {"file":"05_they_were_still_arguing.mid","title":"They Were Still Arguing","bpm":74,"roll_low":"B1","vocal":true,"plan":"P_VOC_LONGBR"},
+    "S06": {"file":"06_ten_years_without_leaving.mid","title":"Ten Years Without Leaving","bpm":72,"roll_low":"G1","vocal":true,"plan":"P_VOC_EXTRA"},
+    "S07": {"file":"07_a_town_above_the_clouds.mid","title":"A Town Above the Clouds","bpm":84,"roll_low":"E2","vocal":true,"plan":"P_VOC"},
+    "S08": {"file":"08_that_morning_never_left.mid","title":"That Morning Never Left","bpm":76,"roll_low":"Db2","plan":"P_STD"},
+    "S09": {"file":"09_bonus_where_we_start.mid","title":"Where We Start (bonus)","bpm":82,"roll_low":"D2","plan":"P_STD"}
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": "0.1",
+  "case_study": "opus5-a-collection-of-sweet-air",
+  "status": "extracted-and-normalized-from-explicit-source",
+  "output_midi_state": "already-generated",
+  "sections": {
+    "role_gain": {
+      "intro": 0.78,
+      "verse": 0.94,
+      "lift": 1.0,
+      "peak": 1.1,
+      "sustain": 1.03,
+      "break": 0.68,
+      "end": 0.9
+    }
+  },
+  "performance": {
+    "phrase_arch": "0.90 + 0.20*sin(pi*clamp(pos,0,1)) - 0.06*max(0,pos-0.82)/0.18",
+    "beat_weight": {
+      "downbeat": 1.0,
+      "secondary_beat": 0.94,
+      "integer_beat": 0.88,
+      "syncopation": 0.8
+    },
+    "legato_by_interval_semitones": {
+      "0_to_2": 0.99,
+      "3_to_4": 0.94,
+      "5_plus": 0.88,
+      "phrase_final_note": 0.99
+    },
+    "microtiming_ticks": {
+      "music_box_lead": 4,
+      "piano_melody_lead": 6,
+      "piano_left_hand_lead": 0,
+      "ding_lead": -2
+    }
+  },
+  "arrangement": {
+    "piano_left_hand": {
+      "subdivision_beats": 0.5,
+      "pattern": ["bass", "near_1", "near_2", "near_3", "bass+12", "near_1", "near_2", "near_3"],
+      "duration_beats": 0.55
+    },
+    "ding_core": {
+      "fold_register_midi": [79, 96],
+      "onset_beat": 3.0,
+      "notes": 4,
+      "spacing_beats": 0.25
+    },
+    "ding_extra": {
+      "roles": ["lift", "peak", "sustain"],
+      "onset_beats": [1.0, 2.0]
+    },
+    "pads": {
+      "mid_note_duration_beats": 3.9,
+      "cc11_curve": [
+        ["entry", 0],
+        ["entry_plus_4_bars", 58],
+        ["peak", 82],
+        ["pre_end", 40],
+        ["end_plus_4_bars", 0]
+      ]
+    }
+  },
+  "ending": {
+    "bars": 10,
+    "stages": ["eighth_note_fade", "quarter_note_thinning", "half_note_thinning", "ascending_roll_and_resonance"],
+    "tempo_multiplier_reference_bpm": 82,
+    "tempo_reference_sequence": [82, 78, 72, 64, 54, 46]
+  },
+  "evidence": [
+    "original/opus5/src/formula.py",
+    "original/opus5/src/midilib.py",
+    "original/opus5/src/songs.py",
+    "original/opus5/BIBLE_1_composition.md",
+    "original/opus5/BIBLE_2_production.md"
+  ]
+}
